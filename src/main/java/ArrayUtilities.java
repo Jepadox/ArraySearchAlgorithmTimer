@@ -9,4 +9,11 @@ public class ArrayUtilities {
             arr[i] = r.nextInt();
         }
     }
+
+    //print all elements of array separated by space
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
 }
