@@ -14,4 +14,22 @@ public class SearchAlgorithms {
 
         return found;
     }
+
+    //variation of sequential search used on sorted array
+    public static boolean sortedSearch(int[] arr, int x){
+        boolean found = false;
+        int i = 0;
+
+        while(i < arr.length && arr[i] < x){
+            if(arr[i] == x){
+                found = true;
+                break;
+            }
+            i++;
+        }
+
+        return found;
+    }
+
+
 }
