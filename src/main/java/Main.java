@@ -20,7 +20,7 @@ public class Main {
         }
 
         //search method return values ignored, only interested in timing algorithms
-        for(int i = 50000; i <= 500000; i+=1000){
+        for(int i = 50000; i <= 50000; i+=1000){
             //i used for array size to search arrays of varying sizes
             numbers = new int[i];
             ArrayUtilities.fillArray(numbers);
