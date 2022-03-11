@@ -10,8 +10,7 @@ public class Main {
         PrintWriter output = null;
         int[] numbers;
         int value;
-        long startTime;
-        long sequentialTime;
+        long startTime, sequentialTime, sortedTime;
 
         try{
             output = new PrintWriter(new FileWriter(outputFileName));
@@ -32,7 +31,15 @@ public class Main {
             SearchAlgorithms.sequentialSearch(numbers, value);
             sequentialTime = System.nanoTime() - startTime;
 
-            output.println(i + "," + sequentialTime);
+            //sort before setting start time to not include sort time in results
+            ArrayUtilities.sortArray(numbers);
+
+            //sorted search time
+            startTime = System.nanoTime();
+            SearchAlgorithms.sortedSearch(numbers, value);
+            sortedTime = System.nanoTime() - startTime;
+
+            output.println(i + "," + sequentialTime + "," + sortedTime);
         }
 
         output.close();
