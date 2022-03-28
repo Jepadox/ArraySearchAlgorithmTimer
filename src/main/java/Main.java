@@ -10,7 +10,7 @@ public class Main {
         PrintWriter output = null;
         int[] numbers;
         int value;
-        long startTime, sequentialTime, sortedTime;
+        long startTime, sequentialTime, sortedTime, binaryTime;
 
         try{
             output = new PrintWriter(new FileWriter(outputFileName));
@@ -19,7 +19,7 @@ public class Main {
         }
 
         //search method return values ignored, only interested in timing algorithms
-        for(int i = 50000; i <= 50000; i+=1000){
+        for(int i = 50000; i <= 500000; i+=1000){
             //i used for array size to search arrays of varying sizes
             numbers = new int[i];
             ArrayUtilities.fillArray(numbers);
@@ -39,7 +39,12 @@ public class Main {
             SearchAlgorithms.sortedSearch(numbers, value);
             sortedTime = System.nanoTime() - startTime;
 
-            output.println(i + "," + sequentialTime + "," + sortedTime);
+            //binary search time
+            startTime = System.nanoTime();
+            SearchAlgorithms.binarySearch(numbers, value);
+            binaryTime = System.nanoTime() - startTime;
+
+            output.println(i + "," + sequentialTime + "," + sortedTime + "," + binaryTime);
         }
 
         output.close();
