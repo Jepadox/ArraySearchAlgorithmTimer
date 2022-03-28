@@ -1,5 +1,28 @@
 public class SearchAlgorithms {
 
+    public static boolean binarySearch(int[] arr, int x){
+        boolean found = false;
+        int first = 0;
+        int last = arr.length - 1;
+        int pivot;
+
+        while(first <= last && !found){
+            pivot = (first + last) / 2;
+
+            if(arr[pivot] == x){
+                found = true;
+            }
+            else{
+                if(arr[pivot] < x){
+                    first = pivot+1;
+                }
+                else{
+                    last = pivot-1;
+                }
+            }
+        }
+        return found;
+    }
     //sequential search returning true if found
     public static boolean sequentialSearch(int[] arr, int x){
         boolean found = false;
